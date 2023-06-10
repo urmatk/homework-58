@@ -1,24 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Modal from "./componets/Modal/Modal";
 
-function App() {
+
+
+const App=() => {
+  const [show, setShow] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button
+        className="w-10 btn btn-primary"
+        onClick={() => setShow(true)}
+      >
+        Modal
+      </button>
+
+      <Modal show={show}>
+        <div className="modal-header d-flex justify-content-between" >
+          <h1 className="modal-title fs-5">Some kinda modal title</h1>
+          <p onClick={() => setShow(false)}>X</p>
+        </div>
+        <div className="modal-body">
+          <p>This is modal content</p>
+        </div>
+      </Modal>
+
     </div>
   );
 }

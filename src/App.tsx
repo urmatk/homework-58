@@ -23,7 +23,7 @@ const App=() => {
       text: '4',
       type: 'warning'
     },
-  ])
+  ]);
   const [show, setShow] = useState(false);
   const closeAlert = (index: number) => {
     const newAlerts = alerts.filter((alert, i) => index !== i);
